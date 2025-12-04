@@ -37,7 +37,7 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
 
     const handleAddToCart = () => {
         if (product) {
-            addToCart({ ...product, size: selectedSize });
+            addToCart({ ...product, size: selectedSize || undefined, description: product.description || "" });
             onClose();
         }
     };

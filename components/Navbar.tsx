@@ -15,7 +15,7 @@ export default function Navbar() {
             className="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 py-6 md:px-12 md:py-8 mix-blend-difference text-white"
         >
             <Link href="/" className="text-2xl font-light tracking-tighter hover:opacity-70 transition-opacity">
-                KÆST
+                ADAGBE
             </Link>
 
             <nav className="hidden md:flex gap-12 text-sm font-light tracking-widest uppercase">

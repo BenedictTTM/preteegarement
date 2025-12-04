@@ -21,8 +21,8 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "KÆST | COPENHAGEN",
-  description: "Genderless, ultra-minimal luxury clothing.",
+  title: "Adagbe Ventures | Style Meets Purpose",
+  description: "Fashion that inspires confidence, celebrates individuality, and elevates everyday living.",
 };
 
 export default function RootLayout({

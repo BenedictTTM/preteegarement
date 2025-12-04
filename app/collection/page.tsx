@@ -11,45 +11,45 @@ import { useCart } from "@/context/CartContext";
 const PRODUCTS = [
     {
         id: "1",
-        name: "Void Coat",
+        name: "Serafina Gown",
         price: "€2,400",
-        image: "https://images.unsplash.com/photo-1539008835657-9e8e9680c956?q=80&w=1887&auto=format&fit=crop",
-        description: "Full-length structured wool coat. Sharp shoulders, hidden placket. A silhouette that commands silence.",
+        image: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=1983&auto=format&fit=crop",
+        description: "A floor-length silk gown in deep midnight blue. Featuring a structured bodice and fluid drape, inspired by the night sky over the Savannah.",
     },
     {
         id: "2",
-        name: "Ash Knit",
+        name: "Zaria Knit Dress",
         price: "€890",
-        image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1920&auto=format&fit=crop",
-        description: "Distressed cashmere blend. Asymmetric hem. The feeling of fog on skin.",
+        image: "https://images.unsplash.com/photo-1605763240004-7e93b172d754?q=80&w=1887&auto=format&fit=crop",
+        description: "Hand-woven cotton blend with intricate patterns. A modern interpretation of traditional weaving techniques, offering comfort and heritage.",
     },
     {
         id: "3",
-        name: "Carbon Trouser",
+        name: "Kente Structure",
         price: "€1,100",
-        image: "https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1888&auto=format&fit=crop",
-        description: "Wide-leg technical wool. Pleated front. Movement without restriction.",
+        image: "https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?q=80&w=1934&auto=format&fit=crop",
+        description: "Bold architectural dress utilizing Kente-inspired geometric patterns. A statement piece that bridges the gap between art and fashion.",
     },
     {
         id: "4",
-        name: "Obsidian Shirt",
-        price: "€650",
-        image: "https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=2070&auto=format&fit=crop",
-        description: "Crisp poplin. Elongated cuffs. A uniform for the modern ascetic.",
+        name: "Obsidian Silk",
+        price: "€1,650",
+        image: "https://images.unsplash.com/photo-1566174053879-31528523f8ae?q=80&w=1587&auto=format&fit=crop",
+        description: "Pure black silk slip dress with asymmetric detailing. Minimalist luxury defined by the quality of the fabric and the precision of the cut.",
     },
     {
         id: "5",
-        name: "Silence Blazer",
+        name: "Terra Blazer Dress",
         price: "€1,800",
         image: "https://images.unsplash.com/photo-1550614000-4b9519e02d48?q=80&w=1887&auto=format&fit=crop",
-        description: "Collarless construction. Raw edges. Tailoring reduced to its essence.",
+        description: "Earthy tones in a structured blazer dress silhouette. Sharp tailoring meets organic warmth.",
     },
     {
         id: "6",
-        name: "Dusk Dress",
+        name: "Solaris Maxi",
         price: "€1,450",
-        image: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=1983&auto=format&fit=crop",
-        description: "Silk drape. Open back. Fluidity captured in fabric.",
+        image: "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?q=80&w=1946&auto=format&fit=crop",
+        description: "Vibrant yellow maxi dress with voluminous sleeves. Capturing the energy of the sun and the joy of movement.",
     },
 ];
 
@@ -58,8 +58,6 @@ export default function CollectionPage() {
     const containerRef = useRef<HTMLDivElement>(null);
     const { scrollY } = useScroll();
     const { items, openCart } = useCart();
-
-    // Parallax for odd/even columns could be added here, but for simplicity we'll stick to a clean masonry layout first.
 
     return (
         <main className="min-h-screen bg-background pt-32 pb-20 px-4 md:px-12">
