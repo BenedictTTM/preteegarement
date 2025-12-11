@@ -22,7 +22,7 @@ const PRODUCTS = [
         id: "2",
         name: "Zaria Knit Dress",
         price: "€890",
-        image: "https://images.unsplash.com/photo-1605763240004-7e93b172d754?q=80&w=1887&auto=format&fit=crop",
+        image: "https://images.unsplash.com/photo-1529139574466-a3005241e2a3?q=80&w=1887&auto=format&fit=crop",
         description: "Hand-woven cotton blend with intricate patterns. A modern interpretation of traditional weaving techniques, offering comfort and heritage.",
         tag: "DAYWEAR"
     },
@@ -46,7 +46,7 @@ const PRODUCTS = [
         id: "5",
         name: "Terra Blazer Dress",
         price: "€1,800",
-        image: "https://images.unsplash.com/photo-1550614000-4b9519e02d48?q=80&w=1887&auto=format&fit=crop",
+        image: "https://images.unsplash.com/photo-1589156280159-27698a70f29e?q=80&w=1887&auto=format&fit=crop",
         description: "Earthy tones in a structured blazer dress silhouette. Sharp tailoring meets organic warmth.",
         tag: "TAILORING"
     },
