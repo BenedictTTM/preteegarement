@@ -11,7 +11,8 @@ export default function CustomCursor() {
     const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
 
-    const springConfig = { damping: 25, stiffness: 700 };
+    // Smoother spring for "magnetic" feel
+    const springConfig = { damping: 20, stiffness: 400, mass: 0.5 };
     const cursorX = useSpring(mouseX, springConfig);
     const cursorY = useSpring(mouseY, springConfig);
 
@@ -22,59 +23,61 @@ export default function CustomCursor() {
             setIsVisible(true);
         };
 
-        const handleMouseDown = () => setIsHovered(true);
-        const handleMouseUp = () => setIsHovered(false);
-
-        // Add hover listeners to interactive elements
-        const handleLinkHover = () => setIsHovered(true);
-        const handleLinkLeave = () => setIsHovered(false);
+        const handleMouseEnter = () => setIsHovered(true);
+        const handleMouseLeave = () => setIsHovered(false);
 
         window.addEventListener("mousemove", moveCursor);
-        window.addEventListener("mousedown", handleMouseDown);
-        window.addEventListener("mouseup", handleMouseUp);
 
-        // Attach to all links and buttons
-        const links = document.querySelectorAll("a, button, input, textarea, [role='button']");
-        links.forEach((link) => {
-            link.addEventListener("mouseenter", handleLinkHover);
-            link.addEventListener("mouseleave", handleLinkLeave);
-        });
-
-        // Re-attach listeners when DOM changes (simple observer)
-        const observer = new MutationObserver(() => {
-            const newLinks = document.querySelectorAll("a, button, input, textarea, [role='button']");
-            newLinks.forEach((link) => {
-                link.removeEventListener("mouseenter", handleLinkHover);
-                link.removeEventListener("mouseleave", handleLinkLeave);
-                link.addEventListener("mouseenter", handleLinkHover);
-                link.addEventListener("mouseleave", handleLinkLeave);
+        // Global listener for interactive elements
+        const updateListeners = () => {
+            const interactables = document.querySelectorAll(
+                "a, button, input, textarea, [role='button'], .hover-magnetic"
+            );
+            interactables.forEach((el) => {
+                el.addEventListener("mouseenter", handleMouseEnter);
+                el.addEventListener("mouseleave", handleMouseLeave);
             });
+            return interactables;
+        };
+
+        let interactables = updateListeners();
+
+        // Observer for dynamic content
+        const observer = new MutationObserver(() => {
+            interactables.forEach((el) => {
+                el.removeEventListener("mouseenter", handleMouseEnter);
+                el.removeEventListener("mouseleave", handleMouseLeave);
+            });
+            interactables = updateListeners();
         });
 
         observer.observe(document.body, { childList: true, subtree: true });
 
+        // Hide cursor on idle
         let timeout: NodeJS.Timeout;
-        const hideCursor = () => {
+        const resetIdleTimer = () => {
+            clearTimeout(timeout);
+            setIsVisible(true);
             timeout = setTimeout(() => setIsVisible(false), 800);
         };
-        window.addEventListener("mousemove", () => {
-            clearTimeout(timeout);
-            hideCursor();
-        });
+        window.addEventListener("mousemove", resetIdleTimer);
 
         return () => {
             window.removeEventListener("mousemove", moveCursor);
-            window.removeEventListener("mousedown", handleMouseDown);
-            window.removeEventListener("mouseup", handleMouseUp);
+            window.removeEventListener("mousemove", resetIdleTimer);
             observer.disconnect();
             clearTimeout(timeout);
+            interactables.forEach((el) => {
+                el.removeEventListener("mouseenter", handleMouseEnter);
+                el.removeEventListener("mouseleave", handleMouseLeave);
+            });
         };
     }, [mouseX, mouseY]);
 
     return (
         <motion.div
             className={cn(
-                "fixed top-0 left-0 w-4 h-4 bg-accent rounded-full pointer-events-none z-[9999] mix-blend-difference",
+                "fixed top-0 left-0 pointer-events-none z-[9999] mix-blend-exclusion flex items-center justify-center",
                 !isVisible && "opacity-0"
             )}
             style={{
@@ -83,18 +86,42 @@ export default function CustomCursor() {
                 x: "-50%",
                 y: "-50%",
             }}
-            animate={{
-                scale: isHovered ? 2.5 : 1,
-                opacity: isVisible ? 1 : 0,
-            }}
-            transition={{
-                scale: { duration: 0.2 },
-                opacity: { duration: 0.2 },
-            }}
         >
-            {isHovered && (
-                <div className="absolute inset-0 bg-accent/20 rounded-full blur-md" />
-            )}
+            {/* State 1: Dot (Default) */}
+            <motion.div
+                className="bg-accent rounded-full absolute"
+                animate={{
+                    width: isHovered ? 4 : 8,
+                    height: isHovered ? 4 : 8,
+                    opacity: isHovered ? 0 : 1
+                }}
+            />
+
+            {/* State 2: Ring (Hover) */}
+            <motion.div
+                className="border border-accent rounded-full absolute"
+                animate={{
+                    width: isHovered ? 40 : 0,
+                    height: isHovered ? 40 : 0,
+                    opacity: isHovered ? 1 : 0,
+                    borderColor: isHovered ? "#C8A660" : "transparent"
+                }}
+                transition={{
+                    type: "spring",
+                    stiffness: 300,
+                    damping: 20
+                }}
+            />
+
+            {/* Glow Effect on Hover */}
+            <motion.div
+                className="absolute bg-accent blur-md rounded-full"
+                animate={{
+                    width: isHovered ? 40 : 0,
+                    height: isHovered ? 40 : 0,
+                    opacity: isHovered ? 0.15 : 0,
+                }}
+            />
         </motion.div>
     );
 }

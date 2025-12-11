@@ -21,7 +21,6 @@ export default function Home() {
       <Ticker />
       <Manifesto />
       <SelectedWorks />
-
       <Footer />
     </main>
   );

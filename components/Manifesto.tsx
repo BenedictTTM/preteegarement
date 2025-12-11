@@ -38,25 +38,25 @@ export default function Manifesto() {
                 scrub: 1,
             },
             opacity: 1,
-            color: "#E8E9EB",
+            color: "#E8E9EB", // Keeping hex for reliable GSAP interpolation
             stagger: 0.05,
         });
     }, []);
 
     return (
-        <section ref={containerRef} className="relative w-full py-40 px-4 md:px-12 bg-background flex flex-col items-center min-h-[80vh] justify-center">
+        <section ref={containerRef} className="relative w-full py-40 px-4 md:px-12 bg-background flex flex-col items-center min-h-[80vh] justify-center overflow-hidden">
 
             <div className="max-w-[1400px] w-full relative z-10">
                 <div className="mb-16 flex items-center gap-4">
                     <span className="h-[1px] w-24 bg-accent"></span>
-                    <span className="text-xs font-mono uppercase text-muted tracking-widest">[ 001_MANIFESTO ]</span>
+                    <span className="text-xs font-mono uppercase text-accent tracking-widest">[ 001_MANIFESTO ]</span>
                 </div>
 
                 <p
                     ref={textRef}
-                    className="text-4xl md:text-[5vw] leading-[1.1] tracking-tighter text-muted text-justify-justify break-words uppercase"
+                    className="text-4xl md:text-[5vw] leading-[1.1] tracking-tighter text-muted text-justify-justify break-words uppercase mix-blend-difference"
                 >
-                    We do not just capture images. We capture souls. A raw dialogue between light and shadow, silence and noise. Kæst is the lens for the modern obscure.
+                    We do not just create clothes. We create armor. A raw dialogue between silhouette and skin, texture and void. Pretee is the uniform for the modern obscure.
                 </p>
 
                 <div className="mt-32 flex justify-between items-end border-t border-white/10 pt-8">

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Manrope, Playfair_Display } from "next/font/google";
+import { Manrope, Playfair_Display, Lavishly_Yours } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import CustomCursor from "@/components/CustomCursor";
@@ -19,9 +19,15 @@ const playfair = Playfair_Display({
   weight: ["400", "500"],
 });
 
+const lavishly = Lavishly_Yours({
+  variable: "--font-lavishly",
+  subsets: ["latin"],
+  weight: "400",
+});
+
 export const metadata: Metadata = {
-  title: "KÆST Ventures | Style Meets Purpose",
-  description: "Fashion that inspires confidence, celebrates individuality, and elevates everyday living.",
+  title: "Pretee | The Quiet Violence of Perfect Taste",
+  description: "Visual brutalism and raw luxury. A study in silence and texture.",
 };
 
 export default function RootLayout({
@@ -32,7 +38,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={`${manrope.variable} ${playfair.variable} antialiased bg-background text-text selection:bg-accent selection:text-black`}
+        className={`${manrope.variable} ${playfair.variable} ${lavishly.variable} antialiased bg-background text-text selection:bg-accent selection:text-black`}
       >
 
         <SmoothScroll>

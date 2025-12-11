@@ -8,21 +8,21 @@ import { motion, useScroll, useTransform } from "framer-motion";
 const works = [
     {
         id: 1,
-        title: "VOID WALKER",
+        title: "CEREMONIAL DRAPE",
         date: "FW 24",
-        img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=90&w=1964&auto=format&fit=crop",
+        img: "https://images.unsplash.com/photo-1661256686873-2a7f70f5ea49?w=1200&auto=format&fit=crop&q=90",
     },
     {
         id: 2,
-        title: "ASHES TO ASHES",
+        title: "OBSIDIAN EVENING",
         date: "SS 25",
-        img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=90&w=1887&auto=format&fit=crop",
+        img: "https://media.istockphoto.com/id/521622910/photo/the-classic-little-black-dress-stylish-and-versatile.webp?a=1&b=1&s=612x612&w=0&k=20&c=jGMpP9Yfhm3nInbcm3EafEO3gkzRaMg_fevHn2rtPkw=",
     },
     {
         id: 3,
-        title: "CHROMATIC FLESH",
+        title: "ROSE SILHOUETTE",
         date: "FW 25",
-        img: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=90&w=1964&auto=format&fit=crop",
+        img: "https://images.unsplash.com/photo-1631831831430-8447cf883291?w=1200&auto=format&fit=crop&q=90",
     },
 ];
 
@@ -37,10 +37,10 @@ export default function SelectedWorks() {
         <section ref={containerRef} className="relative w-full py-40 bg-background overflow-hidden">
             {/* Section Header */}
             <div className="px-4 md:px-12 mb-20 flex justify-between items-end border-b border-white/10 pb-8 mx-4 md:mx-12">
-                <h2 className="text-6xl md:text-9xl font-black tracking-tighter text-transparent stroke-text" style={{ WebkitTextStroke: "1px #333" }}>
+                <h2 className="text-6xl md:text-9xl font-black tracking-tighter text-transparent" style={{ WebkitTextStroke: "1px #333" }}>
                     WORKS
                 </h2>
-                <Link href="/collection" className="hidden md:block text-sm font-mono uppercase hover:text-accent transition-colors">
+                <Link href="/collection" className="hidden md:block text-sm font-mono uppercase text-muted hover:text-accent transition-colors">
                     ( View All Collections )
                 </Link>
             </div>

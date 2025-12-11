@@ -50,13 +50,13 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-sm"
+                    className="fixed inset-0 z-50 flex items-center justify-center bg-background/95 backdrop-blur-sm"
                 >
                     <div className="relative w-full h-full flex flex-col md:flex-row">
                         {/* Close Button */}
                         <button
                             onClick={onClose}
-                            className="absolute top-8 right-8 z-50 text-text hover:text-accent transition-colors"
+                            className="absolute top-8 right-8 z-50 text-foreground hover:text-accent transition-colors"
                         >
                             <X size={32} strokeWidth={1} />
                         </button>
@@ -84,12 +84,12 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
                             transition={{ delay: 0.2, duration: 0.5 }}
                             className="w-full md:w-1/2 h-1/2 md:h-full p-8 md:p-20 flex flex-col justify-center bg-surface"
                         >
-                            <h2 className="font-serif text-6xl md:text-8xl text-text mb-4 leading-none">
+                            <h2 className="font-serif text-6xl md:text-8xl text-foreground mb-4 leading-none">
                                 {product.name}
                             </h2>
                             <p className="text-xl font-light text-muted mb-8">{product.price}</p>
 
-                            <p className="text-sm md:text-base font-light text-text/80 mb-12 leading-relaxed max-w-md">
+                            <p className="text-sm md:text-base font-light text-foreground/80 mb-12 leading-relaxed max-w-md">
                                 {product.description || "Italian cashmere blend. Hand-finished in Copenhagen. Oversized fit with dropped shoulders and raw hem details. A study in silence and texture."}
                             </p>
 
@@ -101,7 +101,7 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
                                         onClick={() => setSelectedSize(size)}
                                         className={`w-8 h-8 rounded-full border border-border flex items-center justify-center text-xs transition-colors ${selectedSize === size
                                             ? "bg-accent border-accent text-black"
-                                            : "hover:border-accent text-muted hover:text-text"
+                                            : "hover:border-accent text-muted hover:text-foreground"
                                             }`}
                                     >
                                         {size}

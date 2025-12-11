@@ -1,223 +1,72 @@
+// Collection Page - "The Grid"
 "use client";
 
-import { useState, useRef, useEffect } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useState } from "react";
 import ProductCard from "@/components/ProductCard";
 import ProductModal from "@/components/ProductModal";
-import Link from "next/link";
-// import { useCart } from "@/context/CartContext";
 import Footer from "@/components/Footer";
 
-// Product Data (Prints/Series)
+// Enhanced Dummy Data
 const PRODUCTS = [
-    {
-        id: "1",
-        name: "Neon Nights",
-        price: "$250",
-        image: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=1200&auto=format&fit=crop&q=90",
-        description: "A limited edition print series capturing the vibrant neon pulse of late-night Tokyo. Printed on archival metallic paper.",
-        tag: "STREET"
-    },
-    {
-        id: "2",
-        name: "Silent Dunes",
-        price: "$300",
-        image: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=1200&auto=format&fit=crop&q=90",
-        description: "Minimalist composition of shifting sands and shadows. Captured in the Namib Desert. Fine art matte print.",
-        tag: "LANDSCAPE"
-    },
-    {
-        id: "3",
-        name: "Concrete Void",
-        price: "$200",
-        image: "https://plus.unsplash.com/premium_photo-1727967194388-d838e1f37dec?w=1200&auto=format&fit=crop&q=90",
-        description: "Architectural study of brutalist structures in Eastern Europe. Focusing on geometry and raw texture.",
-        tag: "CONCEPTUAL"
-    },
-    {
-        id: "4",
-        name: "Midnight Soul",
-        price: "$450",
-        image: "https://plus.unsplash.com/premium_photo-1727967194155-ed1b295c76ae?w=1200&auto=format&fit=crop&q=90",
-        description: "Intimate portrait series exploring the human condition in low light. Emotional, raw, and unfiltered.",
-        tag: "PORTRAIT"
-    },
-    {
-        id: "5",
-        name: "Urban Decay",
-        price: "$280",
-        image: "https://plus.unsplash.com/premium_photo-1727967191702-785af4e14a6d?w=1200&auto=format&fit=crop&q=90",
-        description: "The beauty of forgotten places. Textures of rust, peeling paint, and reclamation by nature.",
-        tag: "STREET"
-    },
-    {
-        id: "6",
-        name: "Solar Flare",
-        price: "$320",
-        image: "https://images.unsplash.com/photo-1499417267106-45cebb7187c9?w=1200&auto=format&fit=crop&q=90",
-        description: "High-contrast study of natural light and lens flares. Abstract and energetic.",
-        tag: "EDITORIAL"
-    },
+    { id: "1", name: "Urban Heritage", price: "$850", image: "https://media.istockphoto.com/id/1352677795/photo/shot-of-a-beautiful-young-woman-wearing-traditional-african-clothing-against-an-urban.webp?a=1&b=1&s=612x612&w=0&k=20&c=gWkEDueatWVf3h4ZspYGvct1ttszLgnuTkxSsR6en3g=", description: "Traditional patterns meet urban brutalism.", tag: "OUTERWEAR" },
+    { id: "2", name: "Azure Silk Gown", price: "$1200", image: "https://images.unsplash.com/photo-1631234764568-996fab371596?w=1200&auto=format&fit=crop&q=90", description: "Flowing silhouette in deep blue.", tag: "DRESSES" },
+    { id: "3", name: "Rose Petal Silhouette", price: "$950", image: "https://images.unsplash.com/photo-1631831831430-8447cf883291?w=1200&auto=format&fit=crop&q=90", description: "Structured warmth for the bold.", tag: "DRESSES" },
+    { id: "4", name: "Obsidian Evening", price: "$1100", image: "https://media.istockphoto.com/id/521622910/photo/the-classic-little-black-dress-stylish-and-versatile.webp?a=1&b=1&s=612x612&w=0&k=20&c=jGMpP9Yfhm3nInbcm3EafEO3gkzRaMg_fevHn2rtPkw=", description: "Timeless black elegance.", tag: "CLASSIC" },
+    { id: "5", name: "Ceremonial Drape", price: "$1500", image: "https://images.unsplash.com/photo-1661256686873-2a7f70f5ea49?w=1200&auto=format&fit=crop&q=90", description: "White textures for sacred moments.", tag: "BRIDAL" },
+    { id: "6", name: "Heritage Weave", price: "$1350", image: "https://images.unsplash.com/photo-1661332517932-2d441bfb2994?w=1200&auto=format&fit=crop&q=90", description: "Intricate traditional craftsmanship.", tag: "BRIDAL" },
 ];
-
-const FILTERS = ["ALL", "PORTRAIT", "LANDSCAPE", "EDITORIAL", "STREET", "CONCEPTUAL"];
 
 export default function CollectionPage() {
     const [selectedProduct, setSelectedProduct] = useState<typeof PRODUCTS[0] | null>(null);
-    const [activeFilter, setActiveFilter] = useState("ALL");
-    const [showArchive, setShowArchive] = useState(false);
-    const containerRef = useRef<HTMLDivElement>(null);
-    // const { items, openCart } = useCart();
-
-    const filteredProducts = activeFilter === "ALL"
-        ? PRODUCTS
-        : PRODUCTS.filter(p => p.tag === activeFilter);
-
-    // Chaos Grid Inserts
-    const chaosInserts = [
-        {
-            index: 2,
-            content: (
-                <div className="w-full h-full min-h-[400px] flex items-center justify-center border border-accent/20 p-8">
-                    <div className="text-center">
-                        <p className="font-mono text-xs text-accent mb-4">[ CAPTURE_NOTE ]</p>
-                        <p className="text-2xl font-bold uppercase max-w-sm mx-auto leading-tight">
-                            "Light is not what we see. It is what allows us to see the truth."
-                        </p>
-                    </div>
-                </div>
-            )
-        }
-    ];
-
-    const getInsert = (idx: number) => chaosInserts.find(i => i.index === idx)?.content;
 
     return (
-        <main className="min-h-screen bg-background text-foreground pt-32 pb-20 px-4 md:px-12 selection:bg-accent selection:text-black">
+        <main className="min-h-screen bg-background pt-32 pb-20 px-4 md:px-0 selection:bg-accent selection:text-black overflow-x-hidden">
 
-            {/* Terminal Header */}
-            <div className="mb-24 border-b border-border/40 pb-8 flex flex-col md:flex-row justify-between items-end gap-8 bg-background/80 backdrop-blur-sm md:sticky md:top-0 z-30 pt-8 mt-[-8rem]">
-                <div>
-                    <span className="font-mono text-xs text-accent mb-2 block animate-pulse">&gt; ARCHIVE_004_LOADED</span>
-                    <h1 className="text-6xl md:text-8xl font-black uppercase tracking-tighter">
-                        Visual <span className="text-stroke-1 text-transparent stroke-current">Capture.</span>
-                    </h1>
-                </div>
-
-                {/* Terminal Filter Bar */}
-                <div className="font-mono text-xs md:text-sm uppercase flex flex-wrap gap-4 items-center">
-                    <span className="text-muted mr-4 hidden md:inline">FILTER_MODE:</span>
-                    {FILTERS.map((filter) => (
-                        <button
-                            key={filter}
-                            onClick={() => setActiveFilter(filter)}
-                            className={`px-3 py-1 border transition-all duration-300 ${activeFilter === filter
-                                ? 'border-accent bg-accent text-black'
-                                : 'border-white/10 hover:border-white/50 text-muted hover:text-foreground'
-                                }`}
-                        >
-                            {filter}
-                        </button>
-                    ))}
+            {/* Minimal Header */}
+            <div className="mb-32 px-4 md:px-12">
+                <h1 className="text-[12vw] md:text-[8vw] leading-[0.8] font-light tracking-[-0.04em] text-foreground opacity-90">
+                    Selected Works
+                </h1>
+                <div className="mt-8 flex gap-8 text-[10px] font-mono tracking-widest uppercase text-muted">
+                    <span>Index: 2024—2025</span>
+                    <span>Status: Archive Live</span>
                 </div>
             </div>
 
-            {/* Chaotic Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-y-24 gap-x-8 max-w-[1800px] mx-auto min-h-[50vh]">
-                {filteredProducts.map((product, index) => {
-                    // Chaos Logic: Assign random spans/offsets based on index
-                    const colSpan = index % 3 === 0 ? "md:col-span-6" : index % 3 === 1 ? "md:col-span-5" : "md:col-span-4 md:col-start-8";
-                    const marginTop = index % 2 === 0 ? "mt-0" : "md:mt-32";
+            {/* Asymmetric Masonry Grid */}
+            {/* We simulate masonry with column counts and breaks, or specific grid areas. 
+                For true masonry in React without libs, CSS columns are easiest, but let's try a Grid with chaotic classes. 
+            */}
+            <div className="w-full max-w-[98%] mx-auto grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-y-32 md:gap-x-12">
+                {PRODUCTS.map((product, i) => {
+                    // Logic for "Chaos":
+                    // Mobile: 1 col (default).
+                    // Desktop: Variable spans and offsets.
+                    // We use `md:col-span-X` and `md:row-span-X` and margins.
 
-                    const insert = getInsert(index);
+                    let className = "relative aspect-[3/4]"; // Default
+
+                    // Simple deterministic chaos based on index
+                    if (i % 5 === 0) className += " md:col-span-2 md:row-span-2 md:mt-12"; // Massive entry
+                    else if (i % 5 === 1) className += " md:col-span-1 md:mt-0";
+                    else if (i % 5 === 2) className += " md:col-span-1 md:mt-32"; // Offset down
+                    else if (i % 5 === 3) className += " md:col-span-2 md:mt-12"; // Wide
+                    else className += " md:col-span-1 md:mt-24"; // Standard-ish
 
                     return (
-                        <div key={product.id} className="contents">
-                            {/* Render Insert if exists for this index (before the product) */}
-                            {insert && (
-                                <div className="md:col-span-4 md:col-start-2 flex items-center justify-center my-12 md:my-0">
-                                    {insert}
-                                </div>
-                            )}
-
-                            <div
-                                className={`${colSpan} ${marginTop}`}
-                            >
-                                <ProductCard
-                                    product={product}
-                                    onClick={(p) => setSelectedProduct(p)}
-                                />
-                            </div>
+                        <div key={product.id} className={className}>
+                            <ProductCard
+                                product={product}
+                                onClick={(p) => setSelectedProduct(p)}
+                            />
                         </div>
-                    )
+                    );
                 })}
             </div>
 
-            {/* Categories Section */}
-            <div className="mt-40 border-t border-white/10 pt-16">
-                <div className="flex flex-col gap-12">
-                    <div className="flex flex-col md:flex-row justify-between items-end gap-4">
-                        <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tighter">
-                            Curated <span className="text-accent">Series</span>
-                        </h2>
-                        <p className="font-mono text-xs text-muted max-w-sm">
-                            Explore the archive by category. Each print is a window into a captured moment of time and space.
-                        </p>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                        {[
-                            {
-                                title: "Portrait",
-                                filter: "PORTRAIT",
-                                image: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=1200&auto=format&fit=crop&q=90"
-                            },
-                            {
-                                title: "Street",
-                                filter: "STREET",
-                                image: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=1200&auto=format&fit=crop&q=90"
-                            },
-                            {
-                                title: "Landscape",
-                                filter: "LANDSCAPE",
-                                image: "https://plus.unsplash.com/premium_photo-1727967194388-d838e1f37dec?w=1200&auto=format&fit=crop&q=90"
-                            },
-                            {
-                                title: "Editorial",
-                                filter: "EDITORIAL",
-                                image: "https://plus.unsplash.com/premium_photo-1727967194155-ed1b295c76ae?w=1200&auto=format&fit=crop&q=90"
-                            }
-                        ].map((category, index) => (
-                            <button
-                                key={category.title}
-                                onClick={() => {
-                                    setActiveFilter(category.filter);
-                                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                                }}
-                                className="group relative aspect-[3/4] overflow-hidden bg-white/5 border border-white/10 text-left"
-                            >
-                                <div className="absolute inset-0">
-                                    <img
-                                        src={category.image}
-                                        alt={category.title}
-                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-80"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                                </div>
-
-                                <div className="absolute inset-0 p-6 flex flex-col justify-end">
-                                    <span className="font-mono text-[10px] text-accent mb-2 opacity-0 -translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
-                                        00{index + 1}
-                                    </span>
-                                    <h3 className="text-2xl font-bold uppercase tracking-widest translate-y-0 group-hover:-translate-y-2 transition-transform duration-300">
-                                        {category.title}
-                                    </h3>
-                                    <div className="w-0 group-hover:w-full h-[1px] bg-accent transition-all duration-500 delay-100" />
-                                </div>
-                            </button>
-                        ))}
-                    </div>
-                </div>
+            {/* Footer Area - Minimal */}
+            <div className="mt-64 px-12 border-t border-white/5 pt-12">
+                <Footer />
             </div>
 
             {/* Modal */}
@@ -225,10 +74,6 @@ export default function CollectionPage() {
                 product={selectedProduct}
                 onClose={() => setSelectedProduct(null)}
             />
-
-            <div className="mt-40">
-                <Footer />
-            </div>
         </main>
     );
 }

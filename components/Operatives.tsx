@@ -47,7 +47,7 @@ export default function Operatives() {
                 {OPERATIVES.map((op, index) => (
                     <div
                         key={op.id}
-                        className="relative group border-b border-white/10 py-8 cursor-crosshair flex justify-between items-center transition-colors hover:bg-white/5 px-4"
+                        className="relative group border-b border-white/10 py-8 cursor-crosshair flex justify-between items-center transition-colors hover:bg-accent/5 px-4"
                         onMouseEnter={() => setHoveredOp(index)}
                         onMouseLeave={() => setHoveredOp(null)}
                     >
@@ -55,17 +55,17 @@ export default function Operatives() {
                             <span className="font-mono text-xs text-muted opacity-50 group-hover:text-accent group-hover:opacity-100 transition-all">
                                 {op.id}
                             </span>
-                            <span className="text-2xl md:text-4xl font-bold uppercase tracking-tight">
+                            <span className="text-2xl md:text-4xl font-bold uppercase tracking-tight text-foreground">
                                 {op.name}
                             </span>
                         </div>
-                        <span className="font-mono text-xs uppercase tracking-widest text-muted group-hover:text-white transition-colors">
+                        <span className="font-mono text-xs uppercase tracking-widest text-muted group-hover:text-foreground transition-colors">
                             {op.role}
                         </span>
 
                         {/* Hover Image Reveal - Floating */}
                         <motion.div
-                            className="fixed z-50 pointer-events-none hidden md:block overflow-hidden"
+                            className="fixed z-50 pointer-events-none hidden md:block overflow-hidden border border-accent/20"
                             style={{
                                 top: "20%",
                                 right: "20%",
@@ -87,7 +87,7 @@ export default function Operatives() {
                                 className="object-cover grayscale contrast-125"
                             />
                             {/* Overlay data on image */}
-                            <div className="absolute bottom-0 left-0 w-full p-2 bg-black/50 backdrop-blur-md">
+                            <div className="absolute bottom-0 left-0 w-full p-2 bg-background/90 backdrop-blur-md border-t border-accent/20">
                                 <p className="font-mono text-[10px] text-accent">{op.id} // ACTIVE</p>
                             </div>
                         </motion.div>

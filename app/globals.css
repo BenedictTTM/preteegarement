@@ -1,19 +1,26 @@
-/* Elite Design Update - "Raw & Tactile" */
+/* Definitive 2025 "Raw Luxury" Design System */
 @import "tailwindcss";
 
 @theme {
-  --color-background: #09090b;
-  /* Slightly warmer/deeper charcoal black */
-  --color-surface: #121214;
-  --color-border: #27272a;
-  --color-text: #E8E9EB;
-  --color-muted: #71717A;
-  --color-accent: #B33A3A;
+  --color-background: #050505;
+  /* Void Black */
+  --color-surface: #0F0F0F;
+  /* Deep Charcoal */
+  --color-border: #1F1F1F;
+  /* Subtle Separation */
+  --color-text: #EAEAEA;
+  /* Soft White */
+  --color-muted: #555555;
+  /* Neutral Grey */
+  --color-accent: #C8A660;
+  /* Raw Brass */
 
   --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-playfair), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-serif: var(--font-playfair), ui-serif, Georgia, serif;
+  --font-lavishly: var(--font-lavishly), cursive;
 
-  --animate-reveal: reveal 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-reveal: reveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-hover-glow: hover-glow 0.4s ease-out forwards;
 
   @keyframes reveal {
     0% {
@@ -26,11 +33,22 @@
       opacity: 1;
     }
   }
+
+  @keyframes hover-glow {
+    0% {
+      box-shadow: 0 0 0 rgba(200, 166, 96, 0);
+    }
+
+    100% {
+      box-shadow: 0 0 20px rgba(200, 166, 96, 0.1);
+    }
+  }
 }
 
 :root {
-  --background: #09090b;
-  --foreground: #E8E9EB;
+  --background: #050505;
+  --foreground: #EAEAEA;
+  --accent: #C8A660;
 }
 
 body {
@@ -39,46 +57,54 @@ body {
   font-family: var(--font-sans);
   overflow-x: hidden;
   cursor: none;
+  /* Custom cursor mandatory */
   -webkit-font-smoothing: antialiased;
+  letter-spacing: -0.02em;
+  /* Tight tracking for "quiet" feel */
 }
 
-/* Typography Utilities */
-.font-stretch-expanded {
-  font-stretch: expanded;
-  /* Requires font support, but good fallback */
-  letter-spacing: 0.05em;
+/* Typography Overrides */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400;
+  /* Light weights only */
+  letter-spacing: -0.04em;
 }
 
-.text-justify-justify {
-  text-align: justify;
-  text-justify: inter-word;
+/* Utilities */
+.text-balance {
+  text-wrap: balance;
 }
 
-/* Raw Structural Elements */
-.border-raw {
-  @apply border border-border/40;
-}
-
-/* Custom Scrollbar - "Industrial" */
+/* Custom Scrollbar - Minimal & Dark */
 ::-webkit-scrollbar {
-  width: 4px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: #050505;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #3f3f46;
-  border-radius: 0;
+  background: #222;
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #B33A3A;
+  background: #C8A660;
 }
 
 ::selection {
-  background: #B33A3A;
-  /* Red Accent */
-  color: #ffffff;
+  background: rgba(200, 166, 96, 0.3);
+  color: #fff;
+}
+
+/* Texture & Vignette Classes for Reusability */
+.vignette-layer {
+  background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.45) 100%);
+  pointer-events: none;
 }

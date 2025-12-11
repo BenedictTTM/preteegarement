@@ -6,7 +6,7 @@ import { ArrowUpRight } from "lucide-react";
 
 export default function Footer() {
     return (
-        <footer className="h-[80vh] w-full bg-[#09090b] flex flex-col items-center justify-center relative overflow-hidden border-t border-white/10">
+        <footer className="h-[80vh] w-full bg-background flex flex-col items-center justify-center relative overflow-hidden border-t border-white/10">
 
             {/* Massive Grid Background (optional subtle detail) */}
             <div className="absolute inset-0 opacity-[0.03]"
@@ -18,20 +18,20 @@ export default function Footer() {
                     href="https://enginx.site"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-mono text-[10px] text-white/20 uppercase tracking-[0.2em] hover:text-accent transition-colors flex items-center gap-2"
+                    className="font-mono text-[10px] text-muted uppercase tracking-[0.2em] hover:text-accent transition-colors flex items-center gap-2"
                 >
                     <span>[ SYSTEM ARCHITECTURE : ENGINX ]</span>
                 </a>
             </div>
 
             <div className="relative z-10 w-full max-w-[90vw] flex flex-col items-center">
-                <div className="w-full flex justify-between items-end mb-8 border-b border-white/20 pb-4">
+                <div className="w-full flex justify-between items-end mb-8 border-b border-white/10 pb-4">
                     <span className="font-mono text-xs text-muted uppercase tracking-widest">[ Contact Protocol ]</span>
                     <span className="font-mono text-xs text-accent uppercase tracking-widest">Open for Collaboration</span>
                 </div>
 
                 <MagneticButton>
-                    <h2 className="text-[12vw] leading-[0.8] font-black uppercase tracking-tighter text-[#1A1D21] hover:text-[#E8E9EB] transition-colors duration-500 cursor-pointer flex items-center gap-4 group">
+                    <h2 className="text-[12vw] leading-[0.8] font-black uppercase tracking-tighter text-neutral-800 hover:text-foreground transition-colors duration-500 cursor-pointer flex items-center gap-4 group">
                         <span>Initiate</span>
                         <ArrowUpRight className="w-[10vw] h-[10vw] text-accent opacity-0 group-hover:opacity-100 transition-all duration-500 -translate-y-8 translate-x-8 group-hover:translate-y-0 group-hover:translate-x-0" />
                     </h2>
