@@ -24,16 +24,16 @@ export default function AboutPage() {
                     </h1>
                     <div className="space-y-6 text-base md:text-lg font-light text-muted leading-relaxed">
                         <p>
-                            At Adagbe Ventures, we believe clothing is more than what you wear — it is who you are, how you feel, and the message you send to the world. Our mission is to create fashion that inspires confidence, celebrates individuality, and elevates everyday living.
+                            At KÆST Ventures, we believe clothing is more than what you wear — it is who you are, how you feel, and the message you send to the world. Our mission is to create fashion that inspires confidence, celebrates individuality, and elevates everyday living.
                         </p>
                         <p>
-                            Born from a passion for quality craftsmanship and timeless design, Adagbe Ventures stands at the crossroads of culture and creativity. We curate and produce clothing that speaks to boldness, comfort, and authenticity.
+                            Born from a passion for quality craftsmanship and timeless design, KÆST Ventures stands at the crossroads of culture and creativity. We curate and produce clothing that speaks to boldness, comfort, and authenticity.
                         </p>
                         <p>
-                            Quality is the foundation of everything we do. From the fabrics we select to the craftsmanship behind every stitch, Adagbe Ventures is committed to delivering apparel that lasts.
+                            Quality is the foundation of everything we do. From the fabrics we select to the craftsmanship behind every stitch, KÆST Ventures is committed to delivering apparel that lasts.
                         </p>
                         <p>
-                            Welcome to Adagbe Ventures — where style meets purpose, and confidence becomes an everyday experience.
+                            Welcome to KÆST Ventures — where style meets purpose, and confidence becomes an everyday experience.
                         </p>
                     </div>
                 </div>

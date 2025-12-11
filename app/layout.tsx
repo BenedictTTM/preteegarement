@@ -21,7 +21,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Adagbe Ventures | Style Meets Purpose",
+  title: "KÆST Ventures | Style Meets Purpose",
   description: "Fashion that inspires confidence, celebrates individuality, and elevates everyday living.",
 };
 

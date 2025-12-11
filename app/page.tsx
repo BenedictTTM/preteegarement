@@ -79,7 +79,7 @@ export default function Home() {
             ref={textRef}
             className="text-[12vw] md:text-[180px] font-extralight leading-none tracking-tighter text-text select-none"
           >
-            ADAGBE
+            KÆST
           </h1>
           <p className="hero-subtext mt-8 text-lg md:text-2xl font-light tracking-[0.2em] text-text/80 uppercase">
             Style Meets Purpose
@@ -113,7 +113,7 @@ export default function Home() {
           <div className="relative aspect-[3/4] overflow-hidden group">
             <Image
               src="https://images.unsplash.com/photo-1605218427360-36390f8558d3?q=80&w=1587&auto=format&fit=crop"
-              alt="Adagbe Campaign 01 - Modern African Luxury"
+              alt="KÆST Campaign 01 - Modern African Luxury"
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-105 grayscale hover:grayscale-0"
             />
@@ -121,7 +121,7 @@ export default function Home() {
           <div className="relative aspect-[3/4] overflow-hidden group md:mt-32">
             <Image
               src="https://images.unsplash.com/photo-1566174053879-31528523f8ae?q=80&w=1587&auto=format&fit=crop"
-              alt="Adagbe Campaign 02 - Timeless Elegance"
+              alt="KÆST Campaign 02 - Timeless Elegance"
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-105 grayscale hover:grayscale-0"
             />
@@ -129,7 +129,7 @@ export default function Home() {
           <div className="relative aspect-[3/4] overflow-hidden group">
             <Image
               src="https://images.unsplash.com/photo-1584530193960-b4eb6c87081c?q=80&w=1587&auto=format&fit=crop"
-              alt="Adagbe Campaign 03 - Bold Expression"
+              alt="KÆST Campaign 03 - Bold Expression"
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-105 grayscale hover:grayscale-0"
             />
