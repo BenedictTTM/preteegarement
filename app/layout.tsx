@@ -34,14 +34,14 @@ export default function RootLayout({
       <body
         className={`${manrope.variable} ${playfair.variable} antialiased bg-background text-text selection:bg-accent selection:text-black`}
       >
-        {/* <CartProvider> */}
+
         <SmoothScroll>
           <CustomCursor />
           <GrainOverlay />
           <Navbar />
           {children}
         </SmoothScroll>
-        {/* </CartProvider> */}
+
       </body>
     </html>
   );

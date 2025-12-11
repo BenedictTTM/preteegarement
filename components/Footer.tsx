@@ -13,6 +13,17 @@ export default function Footer() {
                 style={{ backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)', backgroundSize: '40px 40px' }}
             ></div>
 
+            <div className="relative z-10 w-full mb-12 flex justify-center">
+                <a
+                    href="https://enginx.site"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-mono text-[10px] text-white/20 uppercase tracking-[0.2em] hover:text-accent transition-colors flex items-center gap-2"
+                >
+                    <span>[ SYSTEM ARCHITECTURE : ENGINX ]</span>
+                </a>
+            </div>
+
             <div className="relative z-10 w-full max-w-[90vw] flex flex-col items-center">
                 <div className="w-full flex justify-between items-end mb-8 border-b border-white/20 pb-4">
                     <span className="font-mono text-xs text-muted uppercase tracking-widest">[ Contact Protocol ]</span>
