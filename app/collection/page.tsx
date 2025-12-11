@@ -14,7 +14,7 @@ const PRODUCTS = [
         id: "1",
         name: "Neon Nights",
         price: "$250",
-        image: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=600&auto=format&fit=crop&q=60",
+        image: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=1200&auto=format&fit=crop&q=90",
         description: "A limited edition print series capturing the vibrant neon pulse of late-night Tokyo. Printed on archival metallic paper.",
         tag: "STREET"
     },
@@ -22,7 +22,7 @@ const PRODUCTS = [
         id: "2",
         name: "Silent Dunes",
         price: "$300",
-        image: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=600&auto=format&fit=crop&q=60",
+        image: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=1200&auto=format&fit=crop&q=90",
         description: "Minimalist composition of shifting sands and shadows. Captured in the Namib Desert. Fine art matte print.",
         tag: "LANDSCAPE"
     },
@@ -30,7 +30,7 @@ const PRODUCTS = [
         id: "3",
         name: "Concrete Void",
         price: "$200",
-        image: "https://plus.unsplash.com/premium_photo-1727967194388-d838e1f37dec?w=600&auto=format&fit=crop&q=60",
+        image: "https://plus.unsplash.com/premium_photo-1727967194388-d838e1f37dec?w=1200&auto=format&fit=crop&q=90",
         description: "Architectural study of brutalist structures in Eastern Europe. Focusing on geometry and raw texture.",
         tag: "CONCEPTUAL"
     },
@@ -38,7 +38,7 @@ const PRODUCTS = [
         id: "4",
         name: "Midnight Soul",
         price: "$450",
-        image: "https://plus.unsplash.com/premium_photo-1727967194155-ed1b295c76ae?w=600&auto=format&fit=crop&q=60",
+        image: "https://plus.unsplash.com/premium_photo-1727967194155-ed1b295c76ae?w=1200&auto=format&fit=crop&q=90",
         description: "Intimate portrait series exploring the human condition in low light. Emotional, raw, and unfiltered.",
         tag: "PORTRAIT"
     },
@@ -46,7 +46,7 @@ const PRODUCTS = [
         id: "5",
         name: "Urban Decay",
         price: "$280",
-        image: "https://plus.unsplash.com/premium_photo-1727967191702-785af4e14a6d?w=600&auto=format&fit=crop&q=60",
+        image: "https://plus.unsplash.com/premium_photo-1727967191702-785af4e14a6d?w=1200&auto=format&fit=crop&q=90",
         description: "The beauty of forgotten places. Textures of rust, peeling paint, and reclamation by nature.",
         tag: "STREET"
     },
@@ -54,7 +54,7 @@ const PRODUCTS = [
         id: "6",
         name: "Solar Flare",
         price: "$320",
-        image: "https://images.unsplash.com/photo-1499417267106-45cebb7187c9?w=1000&auto=format&fit=crop&q=60",
+        image: "https://images.unsplash.com/photo-1499417267106-45cebb7187c9?w=1200&auto=format&fit=crop&q=90",
         description: "High-contrast study of natural light and lens flares. Abstract and energetic.",
         tag: "EDITORIAL"
     },
@@ -170,22 +170,22 @@ export default function CollectionPage() {
                             {
                                 title: "Portrait",
                                 filter: "PORTRAIT",
-                                image: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=600&auto=format&fit=crop&q=60"
+                                image: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=1200&auto=format&fit=crop&q=90"
                             },
                             {
                                 title: "Street",
                                 filter: "STREET",
-                                image: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=600&auto=format&fit=crop&q=60"
+                                image: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=1200&auto=format&fit=crop&q=90"
                             },
                             {
                                 title: "Landscape",
                                 filter: "LANDSCAPE",
-                                image: "https://plus.unsplash.com/premium_photo-1727967194388-d838e1f37dec?w=600&auto=format&fit=crop&q=60"
+                                image: "https://plus.unsplash.com/premium_photo-1727967194388-d838e1f37dec?w=1200&auto=format&fit=crop&q=90"
                             },
                             {
                                 title: "Editorial",
                                 filter: "EDITORIAL",
-                                image: "https://plus.unsplash.com/premium_photo-1727967194155-ed1b295c76ae?w=600&auto=format&fit=crop&q=60"
+                                image: "https://plus.unsplash.com/premium_photo-1727967194155-ed1b295c76ae?w=1200&auto=format&fit=crop&q=90"
                             }
                         ].map((category, index) => (
                             <button

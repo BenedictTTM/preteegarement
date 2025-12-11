@@ -10,19 +10,19 @@ const works = [
         id: 1,
         title: "VOID WALKER",
         date: "FW 24",
-        img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1964&auto=format&fit=crop",
+        img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=90&w=1964&auto=format&fit=crop",
     },
     {
         id: 2,
         title: "ASHES TO ASHES",
         date: "SS 25",
-        img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1887&auto=format&fit=crop",
+        img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=90&w=1887&auto=format&fit=crop",
     },
     {
         id: 3,
         title: "CHROMATIC FLESH",
         date: "FW 25",
-        img: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=1964&auto=format&fit=crop",
+        img: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=90&w=1964&auto=format&fit=crop",
     },
 ];
 

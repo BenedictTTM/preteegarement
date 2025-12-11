@@ -2,6 +2,7 @@
 
 import { useRef, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -59,19 +60,15 @@ export default function Hero() {
 
     return (
         <section ref={containerRef} className="relative h-screen w-full overflow-hidden flex items-center justify-center opacity-0">
-            {/* Raw/Organic Video Background */}
+            {/* Static Image Background */}
             <div className="absolute inset-0 z-0">
-                <video
-                    ref={videoRef}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="w-full h-full object-cover opacity-50 grayscale contrast-125"
-                >
-                    {/* Abstract organic texture / dark fluid */}
-                    <source src="https://cdn.coverr.co/videos/coverr-abstract-black-shapes-4524/1080p.mp4" type="video/mp4" />
-                </video>
+                <Image
+                    src="https://images.unsplash.com/photo-1499417267106-45cebb7187c9?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8cGhvdG9ncmFwaGVyfGVufDB8fDB8fHww"
+                    alt="Hero Background"
+                    fill
+                    className="object-cover opacity-50 grayscale contrast-125"
+                    priority
+                />
                 <div className="absolute inset-0 bg-black/30 mix-blend-multiply" />
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" />
             </div>

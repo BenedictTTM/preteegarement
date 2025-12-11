@@ -2,12 +2,12 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { useCart } from "@/context/CartContext";
 import { motion, AnimatePresence } from "framer-motion";
+import ContactModal from "./ContactModal";
 
 export default function Navbar() {
-    const { items, openCart } = useCart();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isContactOpen, setIsContactOpen] = useState(false);
 
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -35,11 +35,10 @@ export default function Navbar() {
 
                 <div className="flex items-center gap-8 text-sm font-light tracking-widest uppercase z-50">
                     <button
-                        onClick={openCart}
+                        onClick={() => setIsContactOpen(true)}
                         className="hover:text-red-500 transition-colors duration-300 flex items-center gap-2"
                     >
-                        <span>Cart</span>
-                        <span className="text-[10px] align-top">({items.length})</span>
+                        <span>Contact</span>
                     </button>
 
                     {/* Mobile Menu Toggle */}
@@ -51,6 +50,8 @@ export default function Navbar() {
                     </button>
                 </div>
             </motion.header>
+
+            <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
 
             {/* Mobile Menu Overlay */}
             <AnimatePresence>
@@ -77,6 +78,15 @@ export default function Navbar() {
                             >
                                 About
                             </Link>
+                            <button
+                                onClick={() => {
+                                    toggleMenu();
+                                    setIsContactOpen(true);
+                                }}
+                                className="text-5xl font-black uppercase tracking-tighter text-white hover:text-accent transition-colors"
+                            >
+                                Contact
+                            </button>
                             <Link
                                 href="/"
                                 onClick={toggleMenu}

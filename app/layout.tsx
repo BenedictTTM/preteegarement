@@ -4,8 +4,8 @@ import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import CustomCursor from "@/components/CustomCursor";
 import GrainOverlay from "@/components/GrainOverlay";
-import { CartProvider } from "@/context/CartContext";
-import Cart from "@/components/Cart";
+// import { CartProvider } from "@/context/CartContext";
+// import Cart from "@/components/Cart";
 import Navbar from "@/components/Navbar";
 
 const manrope = Manrope({
@@ -35,15 +35,15 @@ export default function RootLayout({
       <body
         className={`${manrope.variable} ${playfair.variable} antialiased bg-background text-text selection:bg-accent selection:text-black`}
       >
-        <CartProvider>
+        {/* <CartProvider> */}
           <SmoothScroll>
             <CustomCursor />
             <GrainOverlay />
             <Navbar />
-            <Cart />
+            {/* <Cart /> */}
             {children}
           </SmoothScroll>
-        </CartProvider>
+        {/* </CartProvider> */}
       </body>
     </html>
   );

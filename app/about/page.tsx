@@ -120,7 +120,7 @@ export default function AboutPage() {
                         <div className="md:col-span-7 relative group">
                             <div className="aspect-[4/5] relative overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-700">
                                 <Image
-                                    src="https://images.unsplash.com/photo-1499417267106-45cebb7187c9?w=1000&auto=format&fit=crop&q=60"
+                                    src="https://images.unsplash.com/photo-1499417267106-45cebb7187c9?w=1200&auto=format&fit=crop&q=90"
                                     alt="Origin"
                                     fill
                                     className="object-cover"
@@ -156,7 +156,7 @@ export default function AboutPage() {
                         <div className="md:col-span-7 order-1 md:order-2 relative group">
                             <div className="aspect-video relative overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-700">
                                 <Image
-                                    src="https://plus.unsplash.com/premium_photo-1727967191702-785af4e14a6d?w=600&auto=format&fit=crop&q=60"
+                                    src="https://plus.unsplash.com/premium_photo-1727967191702-785af4e14a6d?w=1200&auto=format&fit=crop&q=90"
                                     alt="Process"
                                     fill
                                     className="object-cover"

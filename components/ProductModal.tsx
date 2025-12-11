@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { X } from "lucide-react";
 import { useEffect, useState } from "react";
-import { useCart } from "@/context/CartContext";
+// import { useCart } from "@/context/CartContext";
 
 interface Product {
     id: string;
@@ -21,7 +21,7 @@ interface ProductModalProps {
 
 export default function ProductModal({ product, onClose }: ProductModalProps) {
     const [selectedSize, setSelectedSize] = useState<string | null>(null);
-    const { addToCart } = useCart();
+    // const { addToCart } = useCart();
 
     // Lock body scroll when modal is open
     useEffect(() => {
@@ -37,8 +37,9 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
 
     const handleAddToCart = () => {
         if (product) {
-            addToCart({ ...product, size: selectedSize || undefined, description: product.description || "" });
-            onClose();
+            // addToCart({ ...product, size: selectedSize || undefined, description: product.description || "" });
+            // onClose();
+            console.log("Add to cart clicked - Cart disabled");
         }
     };
 
