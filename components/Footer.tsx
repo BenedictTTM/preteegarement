@@ -44,8 +44,8 @@ export default function Footer() {
                         <a href="#" className="hover:text-accent transition-colors">LinkedIn</a>
                     </div>
                     <div className="mt-8 md:mt-0 flex flex-col gap-2 text-right">
-                        <span>London, UK / Global</span>
-                        <span>hello@kaest.ventures</span>
+                        <span>Ghana  / Global</span>
+                        <span>hello@Pretee.ventures</span>
                     </div>
                 </div>
             </div>

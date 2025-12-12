@@ -8,12 +8,12 @@ import Footer from "@/components/Footer";
 
 // Enhanced Dummy Data
 const PRODUCTS = [
-    { id: "1", name: "Urban Heritage", price: "$850", image: "https://media.istockphoto.com/id/1352677795/photo/shot-of-a-beautiful-young-woman-wearing-traditional-african-clothing-against-an-urban.webp?a=1&b=1&s=612x612&w=0&k=20&c=gWkEDueatWVf3h4ZspYGvct1ttszLgnuTkxSsR6en3g=", description: "Traditional patterns meet urban brutalism.", tag: "OUTERWEAR" },
     { id: "2", name: "Azure Silk Gown", price: "$1200", image: "https://images.unsplash.com/photo-1631234764568-996fab371596?w=1200&auto=format&fit=crop&q=90", description: "Flowing silhouette in deep blue.", tag: "DRESSES" },
     { id: "3", name: "Rose Petal Silhouette", price: "$950", image: "https://images.unsplash.com/photo-1631831831430-8447cf883291?w=1200&auto=format&fit=crop&q=90", description: "Structured warmth for the bold.", tag: "DRESSES" },
     { id: "4", name: "Obsidian Evening", price: "$1100", image: "https://media.istockphoto.com/id/521622910/photo/the-classic-little-black-dress-stylish-and-versatile.webp?a=1&b=1&s=612x612&w=0&k=20&c=jGMpP9Yfhm3nInbcm3EafEO3gkzRaMg_fevHn2rtPkw=", description: "Timeless black elegance.", tag: "CLASSIC" },
     { id: "5", name: "Ceremonial Drape", price: "$1500", image: "https://images.unsplash.com/photo-1661256686873-2a7f70f5ea49?w=1200&auto=format&fit=crop&q=90", description: "White textures for sacred moments.", tag: "BRIDAL" },
     { id: "6", name: "Heritage Weave", price: "$1350", image: "https://images.unsplash.com/photo-1661332517932-2d441bfb2994?w=1200&auto=format&fit=crop&q=90", description: "Intricate traditional craftsmanship.", tag: "BRIDAL" },
+    { id: "1", name: "Urban Heritage", price: "$850", image: "https://plus.unsplash.com/premium_photo-1702634273302-07e3f8614a96?w=1200&auto=format&fit=crop&q=90", description: "Traditional patterns meet urban brutalism.", tag: "OUTERWEAR" },
 ];
 
 export default function CollectionPage() {

@@ -2,14 +2,22 @@
 
 import { useRef, useEffect } from "react";
 import Link from "next/link";
+import { Style_Script } from "next/font/google";
 import { motion, useScroll, useTransform } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+
+const lavishly = Style_Script({
+    weight: "400",
+    subsets: ["latin"],
+});
 
 export default function Hero() {
     const containerRef = useRef<HTMLDivElement>(null);
     const textRef = useRef<HTMLHeadingElement>(null);
     const videoRef = useRef<HTMLDivElement>(null); // Changed to Div as it wraps the video
+
 
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
@@ -58,11 +66,11 @@ export default function Hero() {
                 {/* Massive Brand Name */}
                 <h1
                     ref={textRef}
-                    className="
+                    className={`
                         text-[100px] md:text-[230px] leading-[0.8] tracking-[-0.05em] 
-                        font-lavishly uppercase text-white 
+                        ${lavishly.className} uppercase text-white 
                         select-none
-                    "
+                    `}
                 >
                     Pretee
                 </h1>
